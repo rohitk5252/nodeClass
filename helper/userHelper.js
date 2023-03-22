@@ -1,8 +1,9 @@
 const User = require('../models/userModel')
+const NewsArticle = require('../models/newsArticleModel')
 
 
-const getAllUsers = async () => {
-    return await User.find({}).select(['company', 'email', 'username'])
+const getAllArticles = async () => {
+    return await NewsArticle.find({})
 }
 
 const getSingleUser = async (obj) => {
@@ -10,6 +11,6 @@ const getSingleUser = async (obj) => {
 }
 
 module.exports = {
-    getAllUsers, 
+    getAllArticles, 
     getSingleUser
 }

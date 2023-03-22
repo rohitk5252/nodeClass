@@ -7,7 +7,7 @@ const {
 
 
 const { deleteOneUser } = require("../services/deleteService");
-const { getAllUsers, getSingleUser } = require("../helper/userHelper");
+const { getAllArticles, getSingleUser } = require("../helper/userHelper");
 
 
 // dashboardaccess
@@ -18,13 +18,12 @@ const dashboardAccess = async (req, res) => {
 // get all users
 const getAll = async (req, res) => {
   try {
-    const allUsers = await getAllUsers();
+    const allUsers = await getAllArticles();
     res.json(allUsers);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-
 
 // delete user
 const deleteUser = async (req, res) => {

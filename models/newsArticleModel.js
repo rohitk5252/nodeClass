@@ -4,7 +4,12 @@ const Schema = mongoose.Schema
 
 const newsArticleSchema = mongoose.Schema({
     source: {
-        type: String
+        id: {
+            type: String,  
+        },
+        name :{
+            type: String,  
+        }
     },
     author: {
         type: String

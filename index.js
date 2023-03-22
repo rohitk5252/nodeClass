@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const cron = require('node-cron')
 const express = require('express');
 const app = express();
 var cors = require('cors')
@@ -24,8 +24,9 @@ app.use('/api/user', userRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log('Connected to db');
-        fetchArticles()
+        cron.schedule('0 0 * * *', () => fetchArticles())
     })
+    
     .catch((err)=>{
         console.log(err);
     })

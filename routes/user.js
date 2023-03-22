@@ -27,7 +27,7 @@ router.use(requireAuth)
 // Route GET dashboard access
 router.get('/dashboardaccess', dashboardAccess)
 
-//  Route GET all users 
+//  Route GET all Articles 
 router.get(('/all'), getAll)
 
 //  Route Delete
