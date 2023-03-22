@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 // controller functions
-const {getAll, signupUser, loginUser, deleteUser } = require('../controllers/userController')
+const {getAll, signupUser, loginUser, deleteUser, dashboardAccess } = require('../controllers/userController')
 
 // Middleware Auth 
 const requireAuth = require('../middleware/requireAuth')
@@ -23,10 +23,14 @@ router.use(requireAuth)
 // below routes will only be fired 
 // if the above middleware approves access
 
+
+// Route GET dashboard access
+router.get('/dashboardaccess', dashboardAccess)
+
 //  Route GET all users 
 router.get(('/all'), getAll)
 
 //  Route Delete
-router.delete('/delete', deleteUser )
+router.delete('/delete', deleteUser)
 
 module.exports =  router;

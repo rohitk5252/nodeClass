@@ -4,9 +4,16 @@ const {
   createToken,
   signup,
 } = require("../services/authService");
+
+
 const { deleteOneUser } = require("../services/deleteService");
 const { getAllUsers, getSingleUser } = require("../helper/userHelper");
 
+
+// dashboardaccess
+const dashboardAccess = async (req, res) => {
+  res.status(200).json("Accecc to dashboard granted")
+}
 
 // get all users
 const getAll = async (req, res) => {
@@ -74,4 +81,5 @@ module.exports = {
   loginUser,
   signupUser,
   deleteUser,
+  dashboardAccess
 };

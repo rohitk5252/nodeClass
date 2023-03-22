@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 var cors = require('cors')
 const mongoose = require('mongoose');
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
+const { fetchArticles } = require('./services/dataService');
 
 
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use('/api/user', userRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log('Connected to db');
+        fetchArticles()
     })
     .catch((err)=>{
         console.log(err);

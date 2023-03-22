@@ -11,7 +11,7 @@ const requireAuth = async (req, res, next) => {
     // but we will split this on space and get the second part i.e token
     const token = authorization.split(' ')[1]
 
-    try {    
+    try {
         const {_id} = jwt.verify(token, process.env.SECRET)
         req.user = await User.findOne({ _id }).select('_id')
         next()
