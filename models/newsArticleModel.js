@@ -34,5 +34,10 @@ const newsArticleSchema = mongoose.Schema({
     }
 })
 
+newsArticleSchema.index({
+    title: 'text',
+    content: 'text',
+})
+
 
 module.exports = mongoose.model('NewsArticle', newsArticleSchema)

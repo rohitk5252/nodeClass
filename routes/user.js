@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 // controller functions
-const {getAll, signupUser, loginUser, deleteUser, dashboardAccess } = require('../controllers/userController')
+const {getAll, signupUser, loginUser, deleteUser } = require('../controllers/userController')
 
 // Middleware Auth 
 const requireAuth = require('../middleware/requireAuth')
@@ -25,10 +25,9 @@ router.use(requireAuth)
 
 
 // Route GET dashboard access
-router.get('/dashboardaccess', dashboardAccess)
+// router.get('/dashboardaccess', dashboardAccess)
 
-//  Route GET all Articles 
-router.get(('/all'), getAll)
+
 
 //  Route Delete
 router.delete('/delete', deleteUser)

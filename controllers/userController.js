@@ -7,23 +7,10 @@ const {
 
 
 const { deleteOneUser } = require("../services/deleteService");
-const { getAllArticles, getSingleUser } = require("../helper/userHelper");
+const { getSingleUser } = require("../helper/userHelper");
 
 
-// dashboardaccess
-const dashboardAccess = async (req, res) => {
-  res.status(200).json("Accecc to dashboard granted")
-}
 
-// get all users
-const getAll = async (req, res) => {
-  try {
-    const allUsers = await getAllArticles();
-    res.json(allUsers);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
 
 // delete user
 const deleteUser = async (req, res) => {
@@ -76,9 +63,7 @@ const signupUser = async (req, res) => {
 
 
 module.exports = {
-  getAll,
   loginUser,
   signupUser,
-  deleteUser,
-  dashboardAccess
+  deleteUser
 };
