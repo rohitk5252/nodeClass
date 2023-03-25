@@ -31,12 +31,21 @@ const newsArticleSchema = mongoose.Schema({
     },
     publishedAt : {
         type: String
+    },
+    outlet: {
+        type: String
     }
 })
 
+newsArticleSchema.pre('save', function(next) {
+    this.outlet = `${this.source.name}`;
+    next();
+  });
+  
 newsArticleSchema.index({
     title: 'text',
     content: 'text',
+    outlet: 'text'
 })
 
 
